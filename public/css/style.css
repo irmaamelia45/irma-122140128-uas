@@ -1,0 +1,549 @@
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Reset default browser styling */
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2d3926;
+  color: #ffffff; /* Putih */
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #d1c4e9;
+}
+
+.header {
+  background: #388e3c;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navigation {
+  background: #388e3c;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.navigation li {
+  margin: 0 15px;
+}
+
+.navigation a {
+  font-size: 1rem;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.navigation a:hover {
+  color: #70c257;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #d1c4e9;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #66bb6a;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #54b135;
+}
+
+.products {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.product {
+  background: #388e3c;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.product img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.product p {
+  font-size: 1rem;
+  color: #d1c4e9;
+}
+
+.btn {
+  display: inline-block;
+  background: #27652c;
+  color: #ffffff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.features {
+  margin: 50px 0;
+  padding: 20px;
+  background: #388e3c;
+  border-radius: 8px;
+}
+
+.features ul {
+  list-style: none;
+}
+
+.features li {
+  margin-bottom: 10px;
+}
+
+.footer {
+  background: #388e3c;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+form {
+  background: #388e3c;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+form label {
+  display: block;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #d1c4e9;
+  color: #000000;
+  border: 1px solid #57c25e;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none; /* Menghilangkan opsi resize pada textarea */
+  max-height: 150px; /* Tinggi maksimal */
+  width: 100%; /* Lebar tetap 100% dari container */
+  overflow-y: auto; /* Tambahkan scrollbar vertikal jika konten melebihi max-height */
+  padding: 10px; /* Tambahkan padding untuk tampilan lebih baik */
+  border-radius: 5px; /* Membulatkan sudut */
+  background: #388e3c; /* Latar belakang */
+  color: #ffffff; /* Warna teks */
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #555;
+}
+
+form button {
+  width: 100%;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+form .error {
+  font-size: 0.875rem;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  display: block;
+  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+}
+
+.main-content {
+  min-height: 100dvh;
+}
+
+button:disabled {
+  background-color: #bcaaa4;
+  color: #d7ccc8;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border: 1px solid #9575cd;
+}
+
+button:disabled:hover {
+  opacity: 0.9; /* Mengurangi efek transparansi saat di-hover */
+}
+
+.logout-button {
+  background-color: #cc3333; /* Merah gelap */
+  color: #ffffff; /* Teks putih */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.logout-button:hover {
+  background-color: #990000; /* Merah yang lebih gelap saat hover */
+  color: #eee; /* Warna teks sedikit lebih terang */
+}
+
+.logout-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #cc3333; /* Efek fokus */
+}
+
+/* Styling untuk tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #2e7d32; /* Warna latar tabel */
+  border-radius: 8px;
+  overflow: hidden; /* Untuk memastikan border-radius */
+}
+
+table th,
+table td {
+  padding: 15px; /* Memberikan ruang lebih */
+  text-align: left;
+  border-bottom: 1px solid #ffffff; /* Border antar baris */
+}
+
+table th {
+  color: #ffffff; /* Warna teks header */
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+table tr:hover td {
+  background-color: #82cd75; /* Warna cokelat soft saat hover */
+  color: #ffffff; /* Warna teks saat hover */
+  cursor: pointer; /* Menunjukkan interaksi */
+}
+
+table td {
+  font-size: 0.85rem; /* Ukuran teks lebih kecil untuk isi */
+  color: #ddd; /* Warna teks isi */
+}
+
+/* Styling tombol dalam tabel */
+table .btn {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #82cd75; /* Warna tombol */
+  color: #ffffff; /* Warna teks tombol */
+  transition: background-color 0.3s ease;
+}
+
+table .btn:hover {
+  background-color: #4e6448; /* Warna tombol saat hover */
+}
+
+/* Styling untuk tombol warna merah dengan tema cokelat soft */
+.btn-red {
+  background-color: #b61717; /* Merah cokelat gelap */
+  color: #ffffff; /* Teks putih dengan kesan lembut */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-red:hover {
+  background-color: #aa2424; /* Merah cokelat lebih gelap saat hover */
+  color: #ffffff; /* Teks putih lebih terang */
+}
+
+.btn-red:focus {
+  outline: none;
+  box-shadow: 0 0 5px #aa2424; /* Efek fokus */
+}
+
+/* Styling untuk tombol warna hijau dengan tema cokelat soft */
+.btn-green {
+  background-color: #1fa221; /* Hijau cokelat gelap */
+  color: #f5f5dc; /* Teks krem lembut */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-green:hover {
+  background-color: #5a722c; /* Hijau cokelat lebih gelap saat hover */
+  color: #ffffff; /* Teks putih */
+}
+
+.btn-green:focus {
+  outline: none;
+  box-shadow: 0 0 5px #5a722c; /* Efek fokus */
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #66bb6a;
+    }
+  }
+}
+
+.messages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+
+  .message-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+
+    .message {
+      padding: 10px;
+      border-radius: 8px;
+      min-width: 300px;
+      max-width: 500px;
+      min-height: 200px;
+      background: #66bb6a;
+      color: #ffffff;
+      text-align: center;
+      margin: 10px 0;
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  padding: 50px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+
+  .cta-button {
+    display: inline-block;
+    background: #66bb6a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #45b135;
+  }
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+
+  span {
+    margin-left: 5px;
+  }
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.form-section {
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.dashboard-table {
+  padding: 0 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboard-form {
+  padding: 20px;
+  border-radius: 8px;
+  background: #388e3c;
+  max-width: 500px;
+  margin: 20px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.cookie-local-session-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: #d32f2f; /* Warna merah */
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+#submitButton {
+  background-color: #66bb6a;
+}

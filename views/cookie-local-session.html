@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Cookie dan Browser Storage</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+
+    <script src="../public/js/aplication.js" defer></script>
+
+    <style>
+      body {
+        background-color: #2d3926;
+        color: #ffffff; /* Hitam */
+      }
+
+      .header {
+        background: #2e7d32; /* Hijau tua */
+      }
+
+      a:hover {
+        color: #66bb6a; /* Hijau lembut */
+      }
+
+      input {
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #66bb6a; /* Hijau lembut */
+        border-radius: 5px;
+        background-color: #f1f8e9; /* Hijau sangat lembut */
+        color: #2e7d32; /* Hijau tua */
+      }
+      .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .btn-set {
+        background-color: #43a047; /* Hijau terang */
+        color: #fff;
+      }
+      .btn-set:hover {
+        background-color: #388e3c; /* Hijau medium */
+      }
+      .btn-delete {
+        background-color: #d32f2f; /* Merah terang */
+        color: #fff;
+      }
+      .btn-delete:hover {
+        background-color: #c62828; /* Merah tua */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="../index.php" class="logo">Ticketting</a>
+        <p>Platform untuk mengelola pemesanan tiket Anda</p>
+      </div>
+    </header>
+
+    <nav class="navigation">
+      <ul>
+        <li><a href="dashboard-ticket.php">Dashboard</a></li>
+        <li>
+          <a href="../controllers/logout.php" class="logout-button">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="cookie-local-session-container">
+      <h2>Kelola State dengan Cookie dan Browser Storage</h2>
+      <!-- Form untuk Cookie -->
+      <section>
+        <h2>Kelola Cookie</h2>
+        <form id="cookieForm">
+          <label for="cookieInput">Masukkan Nilai Cookie:</label>
+          <input
+            type="text"
+            id="cookieInput"
+            placeholder="Masukkan nilai..."
+            required
+          />
+          <button type="button" class="button btn-set" id="setCookie">
+            Set Cookie
+          </button>
+          <button type="button" class="button btn-delete" id="deleteCookie">
+            Hapus Cookie
+          </button>
+        </form>
+        <p>
+          <strong>Nilai Cookie:</strong>
+          <span id="cookieDisplay">Belum ada nilai</span>
+        </p>
+      </section>
+
+      <!-- Form untuk LocalStorage -->
+      <section>
+        <h2>Kelola LocalStorage</h2>
+        <form id="localStorageForm">
+          <label for="localStorageInput">Masukkan Nilai LocalStorage:</label>
+          <input
+            type="text"
+            id="localStorageInput"
+            placeholder="Masukkan nilai..."
+            required
+          />
+          <button type="button" class="button btn-set" id="setLocalStorage">
+            Set LocalStorage
+          </button>
+          <button
+            type="button"
+            class="button btn-delete"
+            id="deleteLocalStorage"
+          >
+            Hapus LocalStorage
+          </button>
+        </form>
+        <p>
+          <strong>Nilai LocalStorage:</strong>
+          <span id="localStorageDisplay">Belum ada nilai</span>
+        </p>
+      </section>
+
+      <!-- Form untuk SessionStorage -->
+      <section>
+        <h2>Kelola SessionStorage</h2>
+        <form id="sessionStorageForm">
+          <label for="sessionStorageInput"
+            >Masukkan Nilai SessionStorage:</label
+          >
+          <input
+            type="text"
+            id="sessionStorageInput"
+            placeholder="Masukkan nilai..."
+            required
+          />
+          <button type="button" class="button btn-set" id="setSessionStorage">
+            Set SessionStorage
+          </button>
+          <button
+            type="button"
+            class="button btn-delete"
+            id="deleteSessionStorage"
+          >
+            Hapus SessionStorage
+          </button>
+        </form>
+        <p>
+          <strong>Nilai SessionStorage:</strong>
+          <span id="sessionStorageDisplay">Belum ada nilai</span>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
