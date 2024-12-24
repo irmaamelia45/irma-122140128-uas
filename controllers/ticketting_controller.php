@@ -8,10 +8,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : null;
 
 // Ambil semua data pemesanan tiket
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetch') {
-    $query = "SELECT ticket_bookings.id, ticket_bookings.name, ticket_bookings.email, ticket_bookings.ticket_type, ticket_bookings.price, ticket_bookings.booking_date, users.name AS booked_by 
-              FROM ticket_bookings 
-              INNER JOIN users ON ticket_bookings.user_id = users.id 
-              ORDER BY ticket_bookings.booking_date DESC";
+    $query = "SELECT * FROM ticket_bookings ORDER BY booking_date DESC";
     $result = $conn->query($query);
     $bookings = [];
     while ($row = $result->fetch_assoc()) {
@@ -24,10 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetch') {
 // Ambil pemesanan tiket berdasarkan ID
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetchById') {
     $id = htmlspecialchars($_GET['id']);
-    $stmt = $conn->prepare("SELECT ticket_bookings.id, ticket_bookings.name, ticket_bookings.email, ticket_bookings.ticket_type, ticket_bookings.price, ticket_bookings.booking_date, users.name AS booked_by 
-                             FROM ticket_bookings 
-                             INNER JOIN users ON ticket_bookings.user_id = users.id 
-                             WHERE ticket_bookings.id = ?");
+    $stmt = $conn->prepare("SELECT * FROM ticket_bookings WHERE id = ?");
     $stmt->bind_param("s", $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -35,11 +29,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetchById') {
     if ($result->num_rows > 0) {
         echo json_encode($result->fetch_assoc());
     } else {
-        echo json_encode(["error" => "Pemesanan tidak ditemukan."]);
+        echo json_encode(["error" => "Pemesanan tiket tidak ditemukan."]);
     }
     $stmt->close();
     exit;
 }
+
+// Ambil semua data pemesanan tiket
+// if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetch') {
+//     $query = "SELECT ticket_bookings.id, ticket_bookings.name, ticket_bookings.email, ticket_bookings.ticket_type, ticket_bookings.price, ticket_bookings.booking_date, users.name AS booked_by 
+//               FROM ticket_bookings 
+//               INNER JOIN users ON ticket_bookings.user_id = users.id 
+//               ORDER BY ticket_bookings.booking_date DESC";
+//     $result = $conn->query($query);
+//     $bookings = [];
+//     while ($row = $result->fetch_assoc()) {
+//         $bookings[] = $row;
+//     }
+//     echo json_encode($bookings);
+//     exit;
+// }
+
+// // Ambil pemesanan tiket berdasarkan ID
+// if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'fetchById') {
+//     $id = htmlspecialchars($_GET['id']);
+//     $stmt = $conn->prepare("SELECT ticket_bookings.id, ticket_bookings.name, ticket_bookings.email, ticket_bookings.ticket_type, ticket_bookings.price, ticket_bookings.booking_date, users.name AS booked_by 
+//                              FROM ticket_bookings 
+//                              INNER JOIN users ON ticket_bookings.user_id = users.id 
+//                              WHERE ticket_bookings.id = ?");
+//     $stmt->bind_param("s", $id);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+
+//     if ($result->num_rows > 0) {
+//         echo json_encode($result->fetch_assoc());
+//     } else {
+//         echo json_encode(["error" => "Pemesanan tidak ditemukan."]);
+//     }
+//     $stmt->close();
+//     exit;
+// }
 
 // Tambahkan pemesanan tiket baru
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'create') {
