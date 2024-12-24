@@ -3,10 +3,9 @@ session_start();
 include './config/db_config.php';
 
 // Ambil data pemesanan tiket terbaru dari database
-$query = "SELECT ticket_bookings.name, ticket_bookings.email, ticket_bookings.ticket_type, ticket_bookings.price, ticket_bookings.booking_date, users.name AS booked_by 
+$query = "SELECT id, name, email, ticket_type, price, booking_date 
           FROM ticket_bookings 
-          INNER JOIN users ON ticket_bookings.user_id = users.id 
-          ORDER BY ticket_bookings.booking_date DESC";
+          ORDER BY booking_date DESC";
 $result = $conn->query($query);
 
 // Periksa apakah ada data yang ditemukan
@@ -110,7 +109,6 @@ $conn->close();
                             <p><strong>Email:</strong> <?php echo htmlspecialchars($booking['email']); ?></p>
                             <p><strong>Jenis Tiket:</strong> <?php echo htmlspecialchars($booking['ticket_type']); ?></p>
                             <p><strong>Harga:</strong> Rp <?php echo number_format($booking['price'], 2, ',', '.'); ?></p>
-                            <p><strong>Dipesan oleh:</strong> <?php echo htmlspecialchars($booking['booked_by']); ?></p>
                             <p><em>Tanggal Pemesanan:</em> <?php echo htmlspecialchars($booking['booking_date']); ?></p>
                         </div>
                     <?php endforeach; ?>
